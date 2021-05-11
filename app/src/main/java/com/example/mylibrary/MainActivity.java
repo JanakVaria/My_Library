@@ -39,6 +39,30 @@ import org.w3c.dom.Text;
             }
         });
 
+        btnWantToRead.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,WantToReadActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnCurrentlyReading.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,CurrentlyReadingBooksActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnFavourite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,FavouriteBooksActivity.class);
+                startActivity(intent);
+            }
+        });
+
         Utils.getInstance();
     }
 
@@ -49,7 +73,7 @@ import org.w3c.dom.Text;
          btnAlreadyRead = findViewById(R.id.btnAlreadyRead);
          btnWantToRead = findViewById(R.id.btnWantToRead);
          btnFavourite = findViewById(R.id.btnFavourite);
-         btnAbout = findViewById(R.id.btnFavourite);
+         btnAbout = findViewById(R.id.btnAbout);
          txtName = findViewById(R.id.txtName);
          txtLisence = findViewById(R.id.txtLicense);
          imgLogo = findViewById(R.id.imgLogo);

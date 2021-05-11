@@ -1,36 +1,28 @@
 package com.example.mylibrary;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 
-public class AlreadyReadBookActivity extends AppCompatActivity {
+public class WantToReadActivity extends AppCompatActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_already_read_book);
+        setContentView(R.layout.activity_want_to_read);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
         RecyclerView recyclerView = findViewById(R.id.bookRecView);
-
         AlreadyReadBookAdapter adapter = new AlreadyReadBookAdapter(this);
         recyclerView.setAdapter(adapter);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter.setBooks(Utils.getAlreadyReadBooks());
+        adapter.setBooks(Utils.getWantToReadBooks());
 
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-//        toolbar.setNavigationOnClickListener(v->{
-//            Intent intent = new Intent(AlreadyReadBookActivity.this ,MainActivity.class);
-//            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-//            startActivity(intent);
-//        });
     }
 
     @Override
@@ -40,4 +32,5 @@ public class AlreadyReadBookActivity extends AppCompatActivity {
         startActivity(intent);
         super.onBackPressed();
     }
+
 }
