@@ -92,4 +92,20 @@ public class Utils {
     public boolean addToCurrentlyReadingBooks(Book book){
         return currentlyReadingBooks.add(book);
     }
+
+    public boolean removeFromAlreadyRead(Book book){
+        return alreadyReadBooks.remove(book);
+    }
+
+    public boolean removeFromWantToRead(Book book){
+        return wantToReadBooks.remove(book);
+    }
+
+    public boolean removeFromCurrentlyReading(Book book){
+        return currentlyReadingBooks.remove(book);
+    }
+
+    public boolean removeFromFavouriteBooks(Book book){
+        return favouriteBooks.remove(book);
+    }
 }

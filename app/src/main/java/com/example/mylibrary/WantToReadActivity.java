@@ -17,7 +17,7 @@ public class WantToReadActivity extends AppCompatActivity {
         setContentView(R.layout.activity_want_to_read);
 
         RecyclerView recyclerView = findViewById(R.id.bookRecView);
-        AlreadyReadBookAdapter adapter = new AlreadyReadBookAdapter(this);
+        BookRecViewAdapter adapter = new BookRecViewAdapter(this,"wantToRead");
         recyclerView.setAdapter(adapter);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
