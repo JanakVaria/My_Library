@@ -9,14 +9,14 @@ import android.webkit.WebViewClient;
 
 public class WebsiteActivity extends AppCompatActivity {
 
-    private WebView webView ;
+    private WebView webView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_website);
         Intent intent = getIntent();
-        if (null!= intent){
+        if (null != intent) {
             String url = intent.getStringExtra("url");
             webView = findViewById(R.id.webView);
             webView.loadUrl(url);
@@ -29,9 +29,9 @@ public class WebsiteActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (webView.canGoBack()){
+        if (webView.canGoBack()) {
             webView.goBack();
-        }else {
+        } else {
             super.onBackPressed();
         }
     }

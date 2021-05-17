@@ -25,7 +25,7 @@ public class AlreadyReadBookAdapter extends RecyclerView.Adapter<AlreadyReadBook
     private static final String TAG = "BookRecViewAdapter";
 
     private ArrayList<Book> books = new ArrayList<>();
-    private Context mContext;
+    private final Context mContext;
 
     public AlreadyReadBookAdapter(Context mContext) {
         this.mContext = mContext;
@@ -41,7 +41,7 @@ public class AlreadyReadBookAdapter extends RecyclerView.Adapter<AlreadyReadBook
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder: Called");
-        holder.txtBookName.setText(books.get(position).getName() );
+        holder.txtBookName.setText(books.get(position).getName());
         Glide.with(mContext)
                 .asBitmap()
                 .load(books.get(position).getImgUrl())
@@ -60,11 +60,11 @@ public class AlreadyReadBookAdapter extends RecyclerView.Adapter<AlreadyReadBook
         holder.txtAuthor.setText(books.get(position).getAuthor());
         holder.txtDescription.setText(books.get(position).getShortDesc());
 
-        if (books.get(position).isExpanded()){
+        if (books.get(position).isExpanded()) {
             TransitionManager.beginDelayedTransition(((holder.parent)));
             holder.expandedRelLayout.setVisibility(View.VISIBLE);
             holder.downArrow.setVisibility(View.GONE);
-        }else {
+        } else {
             TransitionManager.beginDelayedTransition(((holder.parent)));
             holder.expandedRelLayout.setVisibility(View.GONE);
             holder.downArrow.setVisibility(View.VISIBLE);
@@ -81,33 +81,36 @@ public class AlreadyReadBookAdapter extends RecyclerView.Adapter<AlreadyReadBook
         notifyDataSetChanged();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
-        private CardView parent;
-        private ImageView imgBook;
-        private TextView txtBookName;
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        private final CardView parent;
+        private final ImageView imgBook;
+        private final TextView txtBookName;
 
-        private ImageView downArrow, upArrow;
-        private RelativeLayout expandedRelLayout,collapsedRelLayout;
-        private TextView txtAuthor,txtDescription;
+        private final ImageView downArrow;
+        private final ImageView upArrow;
+        private final RelativeLayout expandedRelLayout;
+        private final RelativeLayout collapsedRelLayout;
+        private final TextView txtAuthor;
+        private final TextView txtDescription;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             parent = itemView.findViewById(R.id.parent);
-            imgBook =itemView.findViewById(R.id.imgBook);
+            imgBook = itemView.findViewById(R.id.imgBook);
             txtBookName = itemView.findViewById(R.id.txtBookname);
 
-            downArrow= itemView.findViewById(R.id.btnDownArrow);
-            upArrow=itemView.findViewById(R.id.btnUpArrow);
+            downArrow = itemView.findViewById(R.id.btnDownArrow);
+            upArrow = itemView.findViewById(R.id.btnUpArrow);
             expandedRelLayout = itemView.findViewById(R.id.expandedRelLayout);
             collapsedRelLayout = itemView.findViewById(R.id.collapedRelLayout);
             txtAuthor = itemView.findViewById(R.id.txtAuthor);
-            txtDescription= itemView.findViewById(R.id.txtShortDesc);
+            txtDescription = itemView.findViewById(R.id.txtShortDesc);
 
             downArrow.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Book book= books.get(getAdapterPosition());
+                    Book book = books.get(getAdapterPosition());
                     book.setExpanded(!book.isExpanded());
                     notifyItemChanged(getAdapterPosition());
                 }
@@ -116,7 +119,7 @@ public class AlreadyReadBookAdapter extends RecyclerView.Adapter<AlreadyReadBook
             upArrow.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Book book= books.get(getAdapterPosition());
+                    Book book = books.get(getAdapterPosition());
                     book.setExpanded(!book.isExpanded());
                     notifyItemChanged(getAdapterPosition());
                 }

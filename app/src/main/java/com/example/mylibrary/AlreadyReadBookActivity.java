@@ -18,10 +18,10 @@ public class AlreadyReadBookActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         RecyclerView recyclerView = findViewById(R.id.bookRecView);
 
-        BookRecViewAdapter adapter = new BookRecViewAdapter(this,"alreadyReadBook");
+        BookRecViewAdapter adapter = new BookRecViewAdapter(this, "alreadyReadBook");
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter.setBooks(Utils.getAlreadyReadBooks());
+        adapter.setBooks(Utils.getInstance(this).getAlreadyReadBooks());
 
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -35,7 +35,7 @@ public class AlreadyReadBookActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(this,MainActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         super.onBackPressed();

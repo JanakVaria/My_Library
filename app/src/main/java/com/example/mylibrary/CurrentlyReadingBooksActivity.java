@@ -10,23 +10,22 @@ import android.os.Bundle;
 public class CurrentlyReadingBooksActivity extends AppCompatActivity {
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_currently_reading_books);
 
         RecyclerView recyclerView = findViewById(R.id.bookRecView);
-        BookRecViewAdapter adapter = new BookRecViewAdapter(this,"currentlyReading");
+        BookRecViewAdapter adapter = new BookRecViewAdapter(this, "currentlyReading");
         recyclerView.setAdapter(adapter);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter.setBooks(Utils.getCurrentlyReadingBooks());
+        adapter.setBooks(Utils.getInstance(this).getCurrentlyReadingBooks());
     }
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(this,MainActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         super.onBackPressed();

@@ -24,20 +24,20 @@ public class AllBooksActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        adapter = new BookRecViewAdapter(this,"allBooks");
+        adapter = new BookRecViewAdapter(this, "allBooks");
         booksRecView = findViewById(R.id.booksRecView);
 
         booksRecView.setAdapter(adapter);
         booksRecView.setLayoutManager(new LinearLayoutManager(this));
 
-        adapter.setBooks(Utils.getAllBooks());
+        adapter.setBooks(Utils.getInstance(this).getAllBooks());
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        switch (item.getItemId()){
-            case  android.R.id.home:
+        switch (item.getItemId()) {
+            case android.R.id.home:
                 onBackPressed();
                 break;
             default:

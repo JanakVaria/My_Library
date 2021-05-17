@@ -12,21 +12,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyLibrary">
         <activity android:name=".WebsiteActivity"></activity>
-        <activity android:name=".CurrentlyReadingBooksActivity"
-            android:label="@string/activity_currently_reading"/>
-        <activity android:name=".FavouriteBooksActivity"
-            android:label="@string/activity_favourite_books"/>
-        <activity android:name=".WantToReadActivity"
-            android:label="@string/activity_want_to_read"/>
+        <activity
+            android:name=".CurrentlyReadingBooksActivity"
+            android:label="@string/activity_currently_reading" />
+        <activity
+            android:name=".FavouriteBooksActivity"
+            android:label="@string/activity_favourite_books" />
+        <activity
+            android:name=".WantToReadActivity"
+            android:label="@string/activity_want_to_read" />
         <activity
             android:name=".AlreadyReadBookActivity"
+            android:label="@string/activity_already_read"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
-            android:label="@string/activity_already_read"/>
-        <activity android:name=".BookActivity"
-            android:label="@string/activity_book"/>
-        <activity android:name=".AllBooksActivity"
-            android:label="@string/activity_all_books"/>
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+        <activity
+            android:name=".BookActivity"
+            android:label="@string/activity_book" />
+        <activity
+            android:name=".AllBooksActivity"
+            android:label="@string/activity_all_books" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
